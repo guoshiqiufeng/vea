@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.fubluesky.vea.system.group.mapper.GroupMapper">
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.gitee.fubluesky.vea.system.api.domain.Group" id="coreGroupMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="createDate" column="create_date"/>
+        <result property="modifyDate" column="modify_date"/>
+    </resultMap>
+
+    <select id="findUserGroups" resultMap="coreGroupMap">
+        select cg.* from sys_group cg
+        left join sys_role cr
+        on cg.id = cr.group_id
+        left join sys_user_role cur
+        on cr.role_id = cur.role_id
+        where cg.type = #{type}
+        and cur.user_id = #{userId}
+        group by cg.owner_id
+    </select>
+</mapper>

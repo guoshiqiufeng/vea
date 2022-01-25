@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.gitee.fubluesky</groupId>
+        <artifactId>vea</artifactId>
+        <version>0.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.gitee.fubluesky</groupId>
+    <artifactId>vea-system</artifactId>
+    <description>系统管理模块 </description>
+    <inceptionYear>2021-Now</inceptionYear>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.gitee.fubluesky.kernel</groupId>
+            <artifactId>kernel-all-spring-boot-starter</artifactId>
+            <version>${kernel.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>system-api</module>
+        <module>system-business-account</module>
+        <module>system-business-department</module>
+        <module>system-business-file</module>
+        <module>system-business-group</module>
+        <module>system-business-log</module>
+        <module>system-business-menu</module>
+        <module>system-business-role</module>
+        <module>system-business-user</module>
+        <module>system-spring-boot-starter</module>
+    </modules>
+</project>

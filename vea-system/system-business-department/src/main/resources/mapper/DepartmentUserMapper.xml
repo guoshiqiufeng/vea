@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.fubluesky.vea.system.department.mapper.DepartmentUserMapper">
+
+    <select id="findPage" resultType="com.gitee.fubluesky.vea.system.api.domain.DepartmentUser">
+        select cu.username user_name, cu.nickname user_nick_name,cu.email, cu.mobile, cu.status,
+        cd.name department_name,
+        cdu.create_date create_date, cdu.modify_date modify_date, cdu.id
+        from sys_department_user cdu
+        left join sys_user cu
+        on cdu.user_id = cu.user_id
+        left join sys_department cd
+        on cd.id = cdu.department_id
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

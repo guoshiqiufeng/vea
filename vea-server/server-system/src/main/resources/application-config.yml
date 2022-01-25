@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    hikari:
+      minimum-idle: 10
+      idle-timeout: 600000
+      maximum-pool-size: 40
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    password:
+    timeout: 6000ms
+    jedis:
+      pool:
+        max-active: 1000
+        max-idle: 10
+        min-idle: 5
+kernel:
+  jwt:
+    enabled: true
+    secret: jwt_vea
+    expire: -1
+  auth:
+    security-config-allow-patterns:
+      - "/login"
+      - "/doc.html"
+      - "/doc.html/**"
+      - "/swagger-ui"
+      - "/swagger-ui/**"

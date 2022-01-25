@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.fubluesky.vea.system.menu.mapper.MenuMapper">
+
+	<select id="queryMenuList" resultType="com.gitee.fubluesky.vea.system.api.domain.Menu">
+		SELECT *
+		FROM sys_menu
+		WHERE menu_id IN (
+		SELECT menu_id
+		FROM sys_group_menu
+		WHERE group_id = #{groupId})
+			and is_deleted = '0'
+		order by order_num asc
+	</select>
+
+	<select id="queryUserAllMenuIdList" resultType="java.lang.Long">
+		select distinct rm.menu_id from sys_user_role ur
+		LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id
+		where ur.user_id = #{userId}
+	</select>
+
+	<!-- 查询用户的所有菜单ID -->
+	<select id="queryUserAllMenuId" resultType="long">
+		select distinct rm.menu_id from sys_user_role ur
+		LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id
+		where ur.user_id = #{userId}
+	</select>
+
+	<!-- 查询用户的所有权限 -->
+	<select id="queryUserAllPerms" resultType="string">
+		select m.perms from sys_user_role ur
+		LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id
+		LEFT JOIN sys_menu m on rm.menu_id = m.menu_id
+		where ur.user_id = #{userId}
+	</select>
+
+</mapper>

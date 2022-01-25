@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.gitee.fubluesky.vea.system.autoconfigure.SystemAutoConfiguration,\
+  com.gitee.fubluesky.vea.system.autoconfigure.SystemCacheAutoConfiguration,\
+  com.gitee.fubluesky.vea.system.autoconfigure.BusinessExceptionHandler

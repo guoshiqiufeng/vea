@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.fubluesky.vea.system.user.mapper.UserMapper">
+    <select id="findUserList" resultType="com.gitee.fubluesky.vea.system.api.domain.User">
+        SELECT cu.*
+        FROM sys_user cu
+                     LEFT JOIN sys_user_role cur ON cur.user_id = cu.user_id
+                     LEFT JOIN sys_role cr ON cur.role_id = cr.role_id
+                     LEFT JOIN sys_group cg ON cg.id = cr.group_id
+        WHERE cg.owner_id = #{id} AND cr.code = #{roleCode} AND cg.type = '3'
+    </select>
+</mapper>

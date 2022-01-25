@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.fubluesky.vea.system.group.mapper.GroupMenuMapper">
+    <select id="queryMenuIdList" resultType="long">
+        select menu_id from
+        sys_group_menu
+        where group_id = #{groupId}
+    </select>
+
+    <delete id="deleteBatch">
+        delete from
+        sys_group_menu
+        where group_id in
+        <foreach item="groupId" collection="array" open="(" separator="," close=")">
+            #{groupId}
+        </foreach>
+    </delete>
+</mapper>

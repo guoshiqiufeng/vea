@@ -1,0 +1,11 @@
+# Tomcat
+server:
+  port: 9000
+spring:
+  application:
+    name: server-system
+  # 当前环境名称
+  profiles:
+    active: config,@profiles.active@
+system:
+  user-icon:
