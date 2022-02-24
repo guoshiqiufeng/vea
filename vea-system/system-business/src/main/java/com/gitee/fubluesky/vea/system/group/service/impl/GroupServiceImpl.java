@@ -20,10 +20,10 @@ import com.gitee.fubluesky.vea.system.group.mapper.GroupMapper;
 import com.gitee.fubluesky.vea.system.group.service.IGroupMenuService;
 import com.gitee.fubluesky.vea.system.group.service.IGroupService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,10 +38,10 @@ import java.util.List;
 @Service
 public class GroupServiceImpl extends BaseServiceImpl<GroupMapper, Group> implements IGroupService, GroupServiceApi {
 
-	@Autowired
+	@Resource
 	private IGroupMenuService coreGroupMenuService;
 
-	@Autowired
+	@Resource
 	private RoleServiceApi roleServiceApi;
 
 	/**

@@ -1,18 +1,18 @@
 package com.gitee.fubluesky.vea.system.autoconfigure;
 
 import com.gitee.fubluesky.kernel.cache.redis.utils.RedisCacheUtils;
+import com.gitee.fubluesky.vea.system.api.domain.Menu;
 import com.gitee.fubluesky.vea.system.menu.cache.GroupMenuRedisCache;
 import com.gitee.fubluesky.vea.system.menu.cache.MenuNavRedisCache;
-import com.gitee.fubluesky.vea.system.api.domain.Menu;
 import com.gitee.fubluesky.vea.system.menu.vo.MenuNavVO;
 import com.gitee.fubluesky.vea.system.user.cache.UserPermissionsCache;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Set;
 
@@ -29,7 +29,7 @@ public class SystemCacheAutoConfiguration {
 		return RedisCacheUtils.getObjectRedisTemplate(redisConnectionFactory);
 	}
 
-	@Autowired
+	@Resource
 	private RedisTemplate<String, List<Menu>> groupMenuRedisTemplate;
 
 	@Bean
@@ -43,7 +43,7 @@ public class SystemCacheAutoConfiguration {
 		return RedisCacheUtils.getObjectRedisTemplate(redisConnectionFactory);
 	}
 
-	@Autowired
+	@Resource
 	private RedisTemplate<String, MenuNavVO> menuNavRedisTemplate;
 
 	@Bean
@@ -58,7 +58,7 @@ public class SystemCacheAutoConfiguration {
 		return RedisCacheUtils.getObjectRedisTemplate(redisConnectionFactory);
 	}
 
-	@Autowired
+	@Resource
 	private RedisTemplate<String, Set<String>> userPermissionsRedisTemplate;
 
 	@Bean

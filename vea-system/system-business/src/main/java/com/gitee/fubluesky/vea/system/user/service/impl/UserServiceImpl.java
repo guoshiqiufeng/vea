@@ -43,10 +43,10 @@ import com.gitee.fubluesky.vea.system.user.service.IUserRoleService;
 import com.gitee.fubluesky.vea.system.user.service.IUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 /**
@@ -60,34 +60,34 @@ import java.util.*;
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implements IUserService, UserServiceApi {
 
-	@Autowired
+	@Resource
 	protected SystemProperties systemProperties;
 
-	@Autowired
+	@Resource
 	protected IUserRoleService userRoleService;
 
-	@Autowired
+	@Resource
 	protected IMenuService menuService;
 
-	@Autowired
+	@Resource
 	protected LoginApi loginApi;
 
-	@Autowired
+	@Resource
 	protected AuthApi authApi;
 
-	@Autowired
+	@Resource
 	protected PasswordEncryptApi passwordEncryptApi;
 
-	@Autowired
+	@Resource
 	protected UserPermissionsCache userPermissionsCache;
 
-	@Autowired
+	@Resource
 	private IGroupService groupService;
 
-	@Autowired
+	@Resource
 	private IRoleService roleService;
 
-	@Autowired
+	@Resource
 	private IAccountService accountService;
 
 	/**

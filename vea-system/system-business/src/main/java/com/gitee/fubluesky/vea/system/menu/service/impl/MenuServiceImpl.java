@@ -18,10 +18,10 @@ import com.gitee.fubluesky.vea.system.menu.service.IMenuService;
 import com.gitee.fubluesky.vea.system.menu.vo.MenuNavVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -40,16 +40,16 @@ import java.util.stream.Collectors;
 @Transactional(rollbackFor = Exception.class)
 public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implements IMenuService {
 
-	@Autowired
+	@Resource
 	private GroupMenuRedisCache groupMenuRedisCache;
 
-	@Autowired
+	@Resource
 	private MenuNavRedisCache menuNavRedisCache;
 
-	@Autowired
+	@Resource
 	private LoginApi loginApi;
 
-	@Autowired
+	@Resource
 	private UserServiceApi userServiceApi;
 
 	/**

@@ -21,10 +21,10 @@ import com.gitee.fubluesky.vea.system.role.service.IRoleMenuService;
 import com.gitee.fubluesky.vea.system.role.service.IRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.MessageFormat;
 import java.util.List;
 
@@ -40,13 +40,13 @@ import java.util.List;
 @Service
 public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implements IRoleService, RoleServiceApi {
 
-	@Autowired
+	@Resource
 	private IRoleMenuService roleMenuService;
 
-	@Autowired
+	@Resource
 	private IMenuService menuService;
 
-	@Autowired
+	@Resource
 	private LoginApi loginApi;
 
 	/**

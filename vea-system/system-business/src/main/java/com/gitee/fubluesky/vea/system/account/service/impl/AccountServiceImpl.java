@@ -8,10 +8,10 @@ import com.gitee.fubluesky.vea.system.account.thread.AccountThread;
 import com.gitee.fubluesky.vea.system.api.domain.Account;
 import com.gitee.fubluesky.vea.system.api.exception.SystemException;
 import com.gitee.fubluesky.vea.system.api.exception.enums.SystemExceptionEnum;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Random;
@@ -28,7 +28,7 @@ import java.util.Random;
 @Transactional(rollbackFor = Exception.class)
 public class AccountServiceImpl extends BaseServiceImpl<AccountMapper, Account> implements IAccountService {
 
-	@Autowired
+	@Resource
 	private AccountThread accountThread;
 
 	@Override
