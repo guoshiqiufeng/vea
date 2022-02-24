@@ -29,14 +29,7 @@
 
     <modules>
         <module>system-api</module>
-        <module>system-business-account</module>
-        <module>system-business-department</module>
-        <module>system-business-file</module>
-        <module>system-business-group</module>
-        <module>system-business-log</module>
-        <module>system-business-menu</module>
-        <module>system-business-role</module>
-        <module>system-business-user</module>
+        <module>system-business</module>
         <module>system-spring-boot-starter</module>
     </modules>
 </project>
