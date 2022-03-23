@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Set;
 
@@ -29,12 +28,9 @@ public class SystemCacheAutoConfiguration {
 		return RedisCacheUtils.getObjectRedisTemplate(redisConnectionFactory);
 	}
 
-	@Resource
-	private RedisTemplate<String, List<Menu>> groupMenuRedisTemplate;
-
 	@Bean
 	@ConditionalOnMissingBean(GroupMenuRedisCache.class)
-	public GroupMenuRedisCache groupMenuRedisCache() {
+	public GroupMenuRedisCache groupMenuRedisCache(RedisTemplate<String, List<Menu>> groupMenuRedisTemplate) {
 		return new GroupMenuRedisCache(groupMenuRedisTemplate);
 	}
 
@@ -43,12 +39,9 @@ public class SystemCacheAutoConfiguration {
 		return RedisCacheUtils.getObjectRedisTemplate(redisConnectionFactory);
 	}
 
-	@Resource
-	private RedisTemplate<String, MenuNavVO> menuNavRedisTemplate;
-
 	@Bean
 	@ConditionalOnMissingBean(MenuNavRedisCache.class)
-	public MenuNavRedisCache menuNavRedisCache() {
+	public MenuNavRedisCache menuNavRedisCache(RedisTemplate<String, MenuNavVO> menuNavRedisTemplate) {
 		return new MenuNavRedisCache(menuNavRedisTemplate);
 	}
 
@@ -58,12 +51,9 @@ public class SystemCacheAutoConfiguration {
 		return RedisCacheUtils.getObjectRedisTemplate(redisConnectionFactory);
 	}
 
-	@Resource
-	private RedisTemplate<String, Set<String>> userPermissionsRedisTemplate;
-
 	@Bean
 	@ConditionalOnMissingBean(UserPermissionsCache.class)
-	public UserPermissionsCache userPermissionsRedisCache() {
+	public UserPermissionsCache userPermissionsRedisCache(RedisTemplate<String, Set<String>> userPermissionsRedisTemplate) {
 		return new UserPermissionsCache(userPermissionsRedisTemplate);
 	}
 

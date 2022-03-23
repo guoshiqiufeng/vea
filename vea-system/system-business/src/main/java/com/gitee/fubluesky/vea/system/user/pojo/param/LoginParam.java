@@ -1,6 +1,5 @@
 package com.gitee.fubluesky.vea.system.user.pojo.param;
 
-import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -23,14 +22,12 @@ public class LoginParam implements Serializable {
 	/**
 	 * 账号
 	 */
-	@ApiParam(value = "账号", required = true)
 	@NotBlank(message = "账号不能为空")
 	private String username;
 
 	/**
 	 * 密码
 	 */
-	@ApiParam(value = "密码", required = true)
 	@NotBlank(message = "密码不能为空")
 	private String password;
 

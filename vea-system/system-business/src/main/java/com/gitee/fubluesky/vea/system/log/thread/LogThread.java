@@ -1,5 +1,6 @@
 package com.gitee.fubluesky.vea.system.log.thread;
 
+import com.gitee.fubluesky.kernel.auth.utils.SpringContextUtils;
 import com.gitee.fubluesky.vea.system.api.domain.LogDomain;
 import com.gitee.fubluesky.vea.system.log.service.ILogService;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +16,11 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class LogThread {
 
-	private final ILogService logService;
-
 	@Async("logTaskExecutor")
 	public void run(LogDomain logDomainEntity) {
 		if (logDomainEntity != null) {
 			try {
+				ILogService logService = SpringContextUtils.getBean(ILogService.class);
 				logService.save(logDomainEntity);
 			}
 			catch (Exception e) {

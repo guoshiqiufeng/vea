@@ -7,8 +7,6 @@ import com.gitee.fubluesky.vea.system.group.service.IGroupService;
 import com.gitee.fubluesky.vea.system.user.pojo.param.LoginParam;
 import com.gitee.fubluesky.vea.system.user.pojo.vo.AppLoginVO;
 import com.gitee.fubluesky.vea.system.user.service.IUserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +24,6 @@ import java.util.List;
  * @version 1.0
  * @since 2021-08-20 10:35
  */
-@Api(tags = "登录")
 @RequiredArgsConstructor
 @RestController
 public class LoginController {
@@ -38,7 +35,6 @@ public class LoginController {
 	/**
 	 * 登录
 	 */
-	@ApiOperation("登录")
 	@PostMapping("/login")
 	public ResponseResult login(@Valid @RequestBody LoginParam loginParam) throws IOException {
 		LoginResponse response = userService.login(loginParam);
@@ -76,7 +72,6 @@ public class LoginController {
 	/**
 	 * 退出
 	 */
-	@ApiOperation("退出登录")
 	@PostMapping("/logout")
 	public ResponseResult logout() {
 		userService.logout();

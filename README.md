@@ -6,5 +6,5 @@
 [vue3-element-admin](https://github.com/guoshiqiufeng/vue3-element-admin)
 
 ## 技术
-- spring-boot 2.5.9
-- kernel 1.6.5
+- spring-boot 2.6.4
+- kernel 1.6.7

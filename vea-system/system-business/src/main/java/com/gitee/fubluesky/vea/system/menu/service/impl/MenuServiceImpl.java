@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.gitee.fubluesky.kernel.auth.api.LoginApi;
 import com.gitee.fubluesky.kernel.auth.api.UserServiceApi;
+import com.gitee.fubluesky.kernel.auth.utils.SpringContextUtils;
 import com.gitee.fubluesky.kernel.core.util.ListUtils;
 import com.gitee.fubluesky.kernel.db.mybatisplus.pojo.BaseServiceImpl;
 import com.gitee.fubluesky.vea.system.api.constants.SystemConstants;
@@ -48,9 +49,6 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
 
 	@Resource
 	private LoginApi loginApi;
-
-	@Resource
-	private UserServiceApi userServiceApi;
 
 	/**
 	 * 根据父菜单，查询子菜单
@@ -152,6 +150,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
 		}
 		result = new MenuNavVO();
 		List<Menu> menuList = this.getUserMenuList(userId);
+		UserServiceApi userServiceApi = SpringContextUtils.getBean(UserServiceApi.class);
 		Set<String> permissions = userServiceApi.getUserPermissions(userId);
 		result.setMenuList(menuList);
 		result.setPermissions(permissions);
